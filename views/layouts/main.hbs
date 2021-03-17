@@ -1,0 +1,48 @@
+{{!-- STEP 11 => STEP 12 creo la cartella Routes ed all'interno il file index.js --}}
+{{!-- STEP 22  copio il contenuto di main in layouts/login.hbs --}}
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{!-- STEP 18 importo materialize e Fontawesome  => STEP 19 Chiamo i file statitici in app.js e creo una cartella public nella root --}}
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+     <link rel="stylesheet" href="/css/style.css">
+    <title>StoryBooks</title>
+</head>
+<body>
+    {{!-- STEP 38 importo il partial con il navbar => STEP 39 aggiungo lo script js per le funzionalita --}}
+    {{>_header}}
+    {{!-- STEP 55 importo il bottone per aggiungere storie => STEP 56 creo cartella in vies stories e file add.hbs --}}
+    {{>_add_btn}}
+    <div class="container">
+
+    {{{ body }}}
+
+    </div>
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        {{!-- STEP 39 importo lo script js per funzionalita menu di materialize  => STEP 40 creo cartella middlware altezza root e file auth.js--}}
+        
+        {{!-- STEP 60 importo CKeditor con cdn => STEP 61 configuro CKeditor con il name del campo  --}}
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.16.0/ckeditor.js" integrity="sha512-7My1gsUz5JUQgT8+P0sHKaPel/77X3zjGZsXbTS8Y7MhDEJ+f9xg9H+pPzONFL5djye0zWLlxFLApGsWQ1gdfA==" crossorigin="anonymous"></script>
+
+        <script>
+            M.Sidenav.init(document.querySelector('.sidenav'))
+            // STEP 59 inizializzo js per questa parte del form dinamica => STEP 60 importo CKeditor con CDN per fare la textarea figa
+            M.FormSelect.init(document.querySelector('#status'))  
+
+            //STEP 61 configuro cdn di CKeditor => STEP 62 in routes/stories creo la funzione push per salvare le storie
+            CKEDITOR.replace('body', {
+                plugins : 'wysiwygarea, toolbar, basicstyles, link'
+            })
+
+        </script>
+
+</body>
+</html>

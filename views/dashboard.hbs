@@ -1,0 +1,55 @@
+{{!-- //STEP 14 => sSTEP 15 il file login.hbs in VIEWS --}}
+
+<h6>Dashboard</h6>
+
+{{!-- STEP 45 creo messaggio personalizzato usando la var name creata in route/index.js => STEP 46 creo il Model Stories in models/Story.js --}}
+
+<h3>Welcome {{name}}</h3>
+<p>Here are your stories</p>
+
+{{!-- STEP 53 view template delle stories => STEP 54  creo file partial per creare bottone per aggiungerre storie --}}
+
+{{#if stories}}
+    <table class="striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each stories}}
+                <tr>
+                    <td><a href="/stories/{{_id}}">{{title}}</a></td>
+                    {{!-- STEP 68 aggiungo la funzione formatDate a createdAt => STEP 69 creo file in stories index.hbs --}}
+                    <td> {{formatDate createdAt 'DD MMMM  YYYY, HH:mm:ss'}}</td>                     
+                    <td><span class="dash-status">{{status}}</span></td>
+                    {{!-- STEP 89  creo bottoni per editare e cancellare da listing dashboard => STEP 90 creo bottone delete con metodo override--}}
+                    <td>
+
+                        <a href="/stories/edit/{{_id}}" class="btn btn-float">
+                            <i class="fas fa-edit"></i>
+                        </a>
+
+                        {{!-- STEP 90  creo bottone Delete con metodo override => aggiungo CSS per mettere i bottoni uno al lato dell'altro--}}
+                        <form action="/stories/{{_id}}" method="POST" id="delete-form">
+                            <input type="hidden" name="_method" value="DELETE">
+                                <button type="submit" class="btn red">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                        
+                        </form>
+
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+{{else}}
+    
+    <p>You have not created any Story</p>
+
+{{/if}}

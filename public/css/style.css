@@ -1,0 +1,28 @@
+/* STEP 21 => STEP 22 = importoil file css in main.hbs*/
+
+p {
+    margin : 10px 0 !important
+}
+
+.login-container {
+    width: 400px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+
+/* STEP 80 => STEP 81 vado in routes/stories e creo la rotta per editare le storie gia scritte */
+.fa-small {
+    font-size: 16px !important;
+}
+
+/* STEP 90 metto i bottoni della dashboard side by side => STEP 91 creo il metodo delete per cancellare le storie in routes/stories */
+
+.btn-float{
+    float : left;
+    margin-right: 10px;
+}
+
+.img-small {
+    width: 180px;
+}
